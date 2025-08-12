@@ -1,0 +1,79 @@
+/*Styling o the Sidebar*/
+
+/*container*/
+.sidebar { 
+    width: 240px;
+    background-color: #1F1E23;
+    color: #F1A21D;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-height: 100vh;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+/*User display picture*/
+.display-picture img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    border: 2px solid #F1A21D;
+}
+
+/*User name*/
+.sidebar h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #e5e7eb;
+}
+
+/*links*/
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%
+}
+
+.sidebar li {
+    margin-bottom: 0.75rem;
+}
+
+.sidebar a{
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #F1A21D;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.sidebar a:hover {
+    background-color: #F1A21D;
+    color: #e5e7eb;
+}
+
+/*reponsive*/
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .sidebar ul{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sidebar h4,
+    .display-picture {
+        display: none;
+    }
+}

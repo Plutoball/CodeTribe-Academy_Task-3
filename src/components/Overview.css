@@ -1,0 +1,66 @@
+/*Styling for the over vire gard group*/
+
+/*Structurung the card container*/
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+/*general card style*/
+
+.grid-container > div {
+    padding: 1.25rem;
+    width: 168px;
+    height: 120px;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    color: #1f1e23;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-container > div:hover {
+    transform: translateY(-3px);
+}
+
+/*for card headings and numbers*/
+.grid-container h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #1f1e23;
+}
+
+.grid-container p {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+}
+
+/*Card specific styling*/
+
+.total-card {
+    border: 2px solid #4AB3F4;
+}
+
+.offered-card {
+    border: 2px solid #83F44A;
+}
+
+.inreview-card {
+    border: 2px solid #FCD444;
+}
+
+.rejected-card {
+    border: 2px solid #FB2929;
+}
+
+/*Responsive (stacking*/
+@media (max-width: 600px) {
+    .grid-container{
+        grid-template-columns: 1fr;
+    }
+}

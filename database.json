@@ -1,0 +1,27 @@
+{
+    "applications": [
+        {
+            "id": 1,
+            "company": "Company A",
+            "position": "Software Engineer",
+            "status": "In Review",
+            "dateApplied": "2023-01-15"
+        },
+        {
+            "id": 2,
+            "company": "Company B",
+            "position": "Product Manager",
+            "status": "Just Applied",
+            "dateApplied": "2023-01-20"
+        },
+        {
+            "id": 3,
+            "company": "Company C",
+            "position": "Data Scientist",
+            "status": "Rejected",
+            "dateApplied": "2023-01-25" 
+        }
+    ]
+
+    
+}
