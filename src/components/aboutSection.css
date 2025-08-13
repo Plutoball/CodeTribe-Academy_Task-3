@@ -1,0 +1,43 @@
+/*basic styles for the abotu section*/
+
+.about-section {
+    padding: 4rem 2rem;
+    background-color: #1f1e23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #F1A21D;
+}
+
+.about-content p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.about-cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #F1A21D;
+    color: #1f1e23;
+    border: none;
+    border-radius: 4px;
+}
+
+.about-cta:hover {
+    background-color: #1f1e23;
+    color: #F1A21D;
+}
+

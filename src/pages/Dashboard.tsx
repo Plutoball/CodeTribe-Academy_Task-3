@@ -4,6 +4,7 @@
 import { useEffect, useState} from 'react';
 import { loadApplications } from '../utils/storage';
 import  type { JobApplication } from '../types/JobApply';
+import TopNav from '../components/TopNav';
 import SideBar from '../components/SideBar';
 import Overview from '../components/Overview';
 import ApplicationList from '../components/AppliList';
@@ -21,6 +22,15 @@ function Dashboard() {
     
     <div className="dashboard">
       <SideBar/>
+      <TopNav
+        theme='dark'
+        useFullLogo={false}
+        links={[
+          {label: 'Jobs', href:'/jobs'},
+          {label: 'Career', href:'/career'},
+          {label: 'Advice', href:'/advice'},
+        ]}
+      />
 
       <div className="content">
         {/** Main content of the dashboard */}

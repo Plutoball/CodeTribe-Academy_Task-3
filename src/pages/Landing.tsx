@@ -1,12 +1,31 @@
 //This will serve as the landing page to introduce users to the JobTrack App
+import TopNav from "../components/TopNav";
+import Hero from "../components/HeroSection";
+import './landing.css'
+import AboutSection from "../components/AboutSection";
+import Features from "../components/FeaturesSection";
+import Footer from "../components/FooterSection";
+
 
 function LandingPage() {
     return (
-        <div>
-            <h1>Welcome to JobTrack</h1>
-            <p>Your personal job application tracker.</p>
-            <p>Keep track of your job applications, their statuses, and more!</p>
-            <p>Get started by logging in or registering.</p>
+        <div className="landing-page">
+        {/*Top Navigation*/}    
+        <TopNav
+        theme='light'
+        useFullLogo={true}
+        links={[
+          {label: 'About', href:'/about'},
+          {label: 'Features', href:'/features'},
+          {label: 'Blog', href:'/blog'},
+          {label: 'Sign In', href:'/sign-in'}
+        ]}/>
+        {/*Sections*/}
+        <Hero/>
+        <AboutSection/>
+        <Features/>
+        {/*Footer*/}
+        <Footer/>
         </div>
     );
 }

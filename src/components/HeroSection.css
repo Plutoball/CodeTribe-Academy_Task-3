@@ -1,0 +1,44 @@
+/* Styles for JobTrack herso section */
+/* rem valuse are used to allow for responsiveness*/
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    background-color: #ffffff;
+}
+
+.hero-content {
+    max-width: 50%;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-content h1{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #F1A21D;
+    color: #1F1E23;
+    border: none;
+    border-radius: 6px;
+}
+
+.cta-button:hover{
+    color: #F1A21D;
+    background-color: #1F1E23;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}

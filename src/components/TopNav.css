@@ -1,0 +1,117 @@
+/*Styling for the external/landing page navigation*/
+
+.topnav1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 2px #ECECED;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/*Themes for different uses*/
+
+/*Light theme is alignment with landing and external pages*/
+.topnav1.light{
+    background-color: #fff;
+    border-bottom: 2px solid #ECECED;
+}
+
+.topnav1.light .nav-links li a {
+    color: #1F1E23;
+}
+
+.topnav1.light .nav-links li a:hover {
+    color: #F1A21D;
+}
+
+.topnav1.light .sign-in-btn{
+    background-color: #1F1E23;
+    color: #F1A21D;
+}
+
+.topnav1.light .sign-in-btn:hover{
+    background-color: #F1A21D;
+    color: #1F1E23;
+}
+
+/*Dark theme-inline with brand colours - for internal use*/
+.topnav1.dark {
+    background-color: #F1A21D;
+}
+
+.topnav1.dark .nav-links li a{
+    color: #1F1E23;
+}
+
+.topnav1.dark .nav-links li a:hover{
+    color: #fff;
+}
+
+
+.nav-logo{
+    height: 40px;
+    width: auto;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1F1E23;
+    margin: 0;
+}
+
+.nav-right {
+    display: flex;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* incase the theme experimenr fails*/
+/*.nav-links li a{
+    text-decoration: none;
+    color: #1F1E23;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #F1A21D;
+}
+
+.sign-in-link .sign-in-btn{
+    color: #F1A21D;
+}
+.sign-in-btn {
+    padding: 0.5rem 1rem;
+    background-color: #1F1E23;
+    color: #F1A21D;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.sign-in-btn:hover {
+    background-color: #F1A21D;
+    color: #1F1E23;
+}
+
+.sign-in-link .sign-in-btn:hover{
+    color: #1F1E23;
+}

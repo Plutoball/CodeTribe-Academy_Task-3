@@ -1,4 +1,4 @@
-/* ase dashboard styles */
+/* base dashboard styles - for general layout */
 
 body, html {
     margin :0;
@@ -6,57 +6,64 @@ body, html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f6f8;
     color: #333;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 .dashboard {
     display: flex;
     height: 100vh;
     width: 100vw;
-    overflow:hidden;
-}
-
-.dashboard h3{
-    text-align: left;
-}
-
-.dashboard h2{
-    text-align: left;
-}
-
-.dashboard p{
-    text-align: left;
-}
-
-.sidebar{
-    width: 250px;
-    min-width: 250px;
-    padding: 2px;
-    border-right: 1px solid #eee;
+    padding-top: 60px;
     box-sizing: border-box;
-    overflow-y: auto; 
+}
+
+.dashboard h2,
+.dashboard h3,
+.dashboard p {
+    text-align: left;
+}
+
+/*wrapper for sidebar*/
+.sidebar{
+    flex-shrink: 0;
+    width: 240px;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 900;
 }
 
 /* Content styles */
 .content {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
+    margin-left: 200px;
+    flex-grow: 1;
+    padding: 2rem;
     overflow-y: auto;
+    height: calc(100vh - 60px);
+    box-sizing: border-box;
 }
 /* Responsive styles */
 @media (max-width: 768px) {
     .dashboard {
         flex-direction: column;
+        padding-top: 60px;
     }
     
     .sidebar {
+        position: relative;
         width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #eee;
+        height: auto;
+        top: 0;
+        margin-bottom: 1rem;
     }
     
     .content {
         padding: 1rem;
+        height: auto;
+        margin-left: 0;
     }
 }
