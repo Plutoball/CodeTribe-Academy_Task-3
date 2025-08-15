@@ -1,0 +1,63 @@
+/* Styling for the registration page*/
+/* This could be the point that allows users access to VaS or customisation*/
+/*null = kept but not in use for this project...*/
+.register { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register form {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 320px;
+}
+.register h1{ 
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.register label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.register input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.register input:focus {
+    border-color: #4e54c8;
+    outline: none;
+}
+
+.register button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #4e54c8;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.register button:hover {
+    background: #4e54c8;
+}
+
+
+

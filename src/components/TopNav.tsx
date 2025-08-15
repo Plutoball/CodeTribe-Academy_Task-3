@@ -6,17 +6,24 @@ import logo from '../assets/JT-logo.svg'
 import type React from 'react';
 
 type NavLink = {
-  label: string;
   href: string;
-  isButton?: boolean;
+  label: string;
+  isButton?: boolean
 };
 
+type NavButton = {
+  label: string; 
+  onClick: () => void; 
+  isButton?:boolean; 
+  href?: never 
+}
+type NavItem = NavLink | NavButton;
+   
 type TopNavProps = {
-  links: NavLink[];
+  links: NavItem[],
   theme?: 'light' | 'dark';
   useFullLogo?: boolean;
 };
-
 
 const TopNav : React.FC<TopNavProps> = ({
   links,
@@ -36,9 +43,20 @@ const TopNav : React.FC<TopNavProps> = ({
         <ul className="nav-links">
           {links.map((link,index) =>(
             <li key={index}>
-              <a href={link.href} className={link.isButton? 'sign-in-button' : ''}>
+              {'href' in link ?(
+                <a href={link.href} className={link.isButton? 'sign-in-btn' : ''}>
                 {link.label}
               </a>
+              ):(
+                <button
+                type="button"
+                onClick={link.onClick}
+                className={link.isButton ? 'sign-in-btn' : ''}
+                style={{ background: 'none', border: 'none'}}
+                >
+                  {link.label}
+                </button>
+              )}
             </li>
           ))}
         </ul>

@@ -16,7 +16,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/Landing';
 import Login from './pages/LogIn';
-import Register from './pages/Register';
+import Register from './pages/Register-null';
 import Dashboard from './pages/Dashboard';
 import AddJob from './pages/AddJob';
 import Applications from './pages/Applications';

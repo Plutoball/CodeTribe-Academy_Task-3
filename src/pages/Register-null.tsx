@@ -1,5 +1,6 @@
 //This page will capture new users details and register them.
-
+//null = kept but not in use for this project...
+import './register-null.css';
 function Register() {
   return (
     <div className="register">
