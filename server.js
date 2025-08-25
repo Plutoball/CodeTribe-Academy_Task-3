@@ -1,6 +1,6 @@
-const jsonServer = require ('json-server');
-const auth = require ('json-sever-auth');
-const cors = require ('cors');
+import jsonServer from'json-server';
+import auth from 'json-server-auth';
+import cors from 'cors';
 
 const app = jsonServer.create();
 const router = jsonServer.router('database.json');
@@ -8,10 +8,11 @@ const router = jsonServer.router('database.json');
 app.db = router.db;
 
 app.use(cors());
-app.use(jsonServer.bodyParse);
+app.use(jsonServer.bodyParser);
 app.use(auth);
 app.use(router);
 
-app.listen(4000, () => {
-    console.log('JSON Server with auth running on http://localhost:8100');
+const PORT = 4000;
+app.listen(PORT, () => {
+    console.log(`JSON Server with auth running on http://localhost:${PORT}`)
 });

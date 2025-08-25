@@ -4,9 +4,11 @@
 // Users can delete a record/ enrty on this table.
 
 import { useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { JobApplication } from '../types/JobApply';
 import { MdDelete, MdSearch } from 'react-icons/md';
 import './AppliList.css';
+import { loadApplications, saveApplications } from '../utils/storage';
 
 interface Props {
     applications: JobApplication[];
@@ -16,13 +18,14 @@ function ApplicationList({ applications }: Props) {
     {/*Search logic*/}
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState ('');
+    const navigate = useNavigate();
 
     const filteredApps = applications.filter(
         app => {
             const matchSearch = 
-             app.companyName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             app.position.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             app.title.toLowerCase().includes(searchTerm.toLowerCase());
+             (app.companyName || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+             (app.position || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+             (app.title || '').toLowerCase().includes(searchTerm.toLowerCase());
 
             const matchStatus = statusFilter === '' || app.status === statusFilter;
             
@@ -30,8 +33,12 @@ function ApplicationList({ applications }: Props) {
         });
 
     function handleDelete(id: string){
-        // logoc to remove record /row from localStorage
+        //remove record /row from localStorage
         console.log("Delete", id);
+        const allApps = loadApplications();
+        const updated = allApps.filter(app => app.id !== id);
+        saveApplications(updated);
+        window.dispatchEvent(new Event('storage'));
     }
         
     {/*Interface output set up*/}
@@ -60,9 +67,7 @@ function ApplicationList({ applications }: Props) {
                     </div>
                 </div>
 
-                <button>
-                    <a href="/AppliForm">Add New</a>
-                </button>
+                <button onClick={() => navigate ('/add-job')}>Add New</button>
             </div>
             
             {/* Result = filtered table*/}
@@ -86,13 +91,16 @@ function ApplicationList({ applications }: Props) {
                     {/* Table Rows */}
                     {filteredApps.map(app => (
                         <tr key={app.id}>
+                            <td>{app.id}</td>
                             <td>{app.title}</td>
                             <td>{app.refNumber}</td>
                             <td>{app.position}</td>
                             <td>{app.companyName}</td>
                             <td>{new Date(app.dateApplied).toLocaleDateString()}</td>
                             <td>{app.status}</td>
-                            <td><a href= {new URL (app.link).toString()} target='_blank' rel="noopener noreferrer">View</a></td>
+                            <td>
+                                <a href={app.link} target='_blank' rel="noopener noreferrer">View</a>
+                            </td>
                             <td>
                                 <button onClick={() => handleDelete(app.id)} className="deleteIcon"><MdDelete/></button>
                             </td>

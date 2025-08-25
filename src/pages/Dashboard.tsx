@@ -2,6 +2,7 @@
 // Its can also list companies, job titles, and other relevant information.
 
 import { useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
 import { loadApplications } from '../utils/storage';
 import  type { JobApplication } from '../types/JobApply';
 import TopNav from '../components/TopNav';
@@ -13,9 +14,38 @@ import './dashboard.css'; //Dashboard CSS file for styling
 
 function Dashboard() {
     const [applications, setApplications] = useState<JobApplication[]>([]);
+    const location = useLocation();
+
+    const refreshApplications = () => {
+      const allApps = loadApplications();
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+
+      if (!currentUser?.id) {
+        setApplications([]);
+        return;
+      }
+
+      const userApps = allApps.filter (
+        app => String(app.userId) === String(currentUser.id)
+      );
+      setApplications(userApps);
+    };
+    
     useEffect(() => {
-        const data = loadApplications();
-        setApplications(data);
+      refreshApplications();
+    }, [location]);
+
+    useEffect(() => {
+      const handleStorageChange = (e: StorageEvent) => {
+        if (e.key === 'jobApplication') {
+          refreshApplications();
+        }
+      };
+
+      window.addEventListener('storage', handleStorageChange);
+      return () => {
+        window.removeEventListener('storage', handleStorageChange);
+      };
     }, []);
 
   return (

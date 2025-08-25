@@ -3,11 +3,13 @@
 
 import type { JobApplication } from '../types/JobApply';
 
+const STORAGE_KEY = 'jobApplications';
+
 export const loadApplications = () : JobApplication[] => {
-    const data = localStorage.getItem ('aplications');
+    const data = localStorage.getItem (STORAGE_KEY);
     return data ? JSON.parse(data) : [];
 };
 
 export const saveApplications = (apps: JobApplication[]) => {
-    localStorage.setItem('applications', JSON.stringify(apps));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(apps));
 };
